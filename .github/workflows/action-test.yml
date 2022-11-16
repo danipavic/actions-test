@@ -8,7 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    echo: "Running build"
+    steps:
+      - uses: actions/first-interaction@v1
+        echo: "Running build"
 
   deploy:
     runs-on: ubuntu-latest
