@@ -13,14 +13,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    if: (github.event_name == 'push' && github.ref == 'refs/heads/development') || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main)'
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/development') || (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main')
     steps:
       - name: Download build artifacts
       - name: Deploy to staging
         if: github.ref == 'refs/heads/development'
-        - uses: actions/first-interaction@v1
+        uses: actions/first-interaction@v1
         echo: "Running deploy to staging"
       - name: Deploy to production
+        uses: actions/first-interaction@v1
         if: github.ref == 'refs/heads/main'
-        - uses: actions/first-interaction@v1
         echo: "Running deploy to production"
