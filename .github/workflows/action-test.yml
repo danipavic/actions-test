@@ -18,7 +18,9 @@ jobs:
       - name: Download build artifacts
       - name: Deploy to staging
         if: github.ref == 'refs/heads/development'
+        - uses: actions/first-interaction@v1
         echo: "Running deploy to staging"
       - name: Deploy to production
         if: github.ref == 'refs/heads/main'
+        - uses: actions/first-interaction@v1
         echo: "Running deploy to production"
